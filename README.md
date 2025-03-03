@@ -1,54 +1,14 @@
-# React + TypeScript + Vite
+# Messing around with Cursor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repo is to just fiddle around with Cursor and other AI related technologies.
 
-Currently, two official plugins are available:
+## Notes:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To gauge the extent of Cursor's capabilities, I attempted to get to create the project from scratch.
+Prompt supplied: `Create a new react application, using vite and integrate with tailwind`
+Cursor managed to run the relevant npm commands to create a new React application with Vite. However, it did encounter several errors with read-only permissions on the files created. It kind of got stuck in a loop and did not know how to resolve those issues.
+I manually created the React & Vite project structure, and it took less time than trying to prompt Cursor to fix the mess it had gotten itself into.
 
-## Expanding the ESLint configuration
+But maybe, that is not a fair use case for Cursor. I then prompted it to integrate Tailwind in the fresh React & Vite project. It could not do this either, as it tried to integrate Tailwind in a way that did not suit the project structure. There were several errors with the first approach it implemented. The second solution that it came up with also had issues. I reverted it's changes and implemented Tailwind manually.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+So, currently, Cursor is 0/2 for setting up a fresh project.
